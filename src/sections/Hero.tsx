@@ -85,7 +85,7 @@ export const HeroSection = () => {
 
           <button className="flex justify-center items-center bg-white px-4 py-1.5 rounded-lg gap-2 border border-gray-950 w-48 text-gray-900 h-12 text-sm ">
             <span>👋</span>
-            <span className=" font-semibold">Let's Connect</span>
+            <span className=" font-semibold">Let&apos;s Connect</span>
           </button>
         </div>
       </div>
