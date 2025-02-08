@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    .nav-item {
+        @apply px-4 py-1.5 rounded-full text-white/70 font-semibold hover:bg-white/10 hover:text-white transition duration-300
+    }
+
+    .selected-item{
+        @apply bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900
+    }
+
+    .circle-rings {
+        @apply absolute -z-20 border border-emerald-300/10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_0_80px_inset] shadow-emerald-300/5
+    }
+
+    .title {
+        @apply text-3xl md:text-5xl lg:text-7xl font-serif font-bold my-4 tracking-wide
+    }
+
+    .desc {
+        @apply md:text-lg lg:text-2xl mt-4 text-white/60
+    }
+
+    .center-container {
+        @apply text-center md:max-w-xl lg:max-w-3xl mx-auto
+    }
+}
+
+
+@layer utilities{
+    .container {
+        @apply lg:max-w-5xl
+    }
+}
