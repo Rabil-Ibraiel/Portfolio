@@ -25,6 +25,7 @@ export const Footer = () => {
           <nav className="flex flex-col md:flex-row items-center gap-8 ">
             {links.map((link) => (
               <Link
+                key={link.title}
                 target="_blank"
                 href={link.link}
                 className="flex items-center gap-1"
