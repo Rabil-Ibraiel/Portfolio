@@ -3,6 +3,9 @@ import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
 import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
 import memojiAvatar4 from "@/assets/images/memoji-avatar-4.png";
 import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
+import Card from "@/components/Card";
+import Image from "next/image";
+import { Fragment } from "react";
 
 const testimonials = [
   {
@@ -38,5 +41,51 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
-  return <div>Testimonials Section</div>;
+  return (
+    <div className="py-16 lg:py-24">
+      <div className="container center-container">
+        <p className="sub-title">happy clients</p>
+        <h2 className="title">What Clients Say about Me</h2>
+        <p className="desc">
+          Don&#39;t just take my word for it—see what my clients have to say!
+          Their experiences speak for themselves.
+        </p>
+
+        <div className="flex mt-16 lg:mt-20 overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex flex-none gap-8 pr-8 animate-move-left [animation-duration:60s] py-4 hover:[animation-play-state:paused]">
+            {[...new Array(2)].fill(0).map((_, index) => (
+              <Fragment key={index}>
+                {testimonials.map((testimonial) => (
+                  <Card
+                    key={testimonial.name}
+                    className="p-6 md:p-8 max-w-xs md:max-w-md hover:-rotate-3"
+                  >
+                    <div className="flex items-center gap-4 text-left">
+                      <div className="size-16 inline-flex justify-center items-center bg-gray-700 rounded-full ">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                        />
+                      </div>
+                      <div className="flex flex-col items-start ">
+                        <span className="font-semibold">
+                          {testimonial.name}
+                        </span>
+                        <span className="text-xs text-white/40">
+                          {testimonial.position}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="mt-4 md:mt-6 text-sm md:text-base text-left">
+                      {testimonial.text}
+                    </p>
+                  </Card>
+                ))}
+              </Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };

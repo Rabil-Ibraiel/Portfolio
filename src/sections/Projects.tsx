@@ -1,59 +1,44 @@
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import linkList from "@/assets/images/linkList.png";
+import iipc from "@/assets/images/IIPC.png";
 import Link from "next/link";
 import Image from "next/image";
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
-import grainImage from "@/assets/images/grain.jpg";
+import Card from "@/components/Card";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "Personal Project",
+    year: "2024",
+    title: "Linklist",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
-    image: darkSaasLandingPage,
+    link: "https://linklist-rabil.vercel.app/",
+    image: linkList,
   },
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "Personal Project",
+    year: "2024",
+    title: "Instant Invoice PDF Creator",
     results: [
       { title: "Boosted sales by 20%" },
       { title: "Expanded customer reach by 35%" },
       { title: "Increased brand awareness by 15%" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
-    image: lightSaasLandingPage,
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
+    link: "https://iipc-saa-s-nextjs-1t9l.vercel.app/",
+    image: iipc,
   },
 ];
 
 export const ProjectsSection = () => {
   return (
-    <section className="pb-16 lg:py-24">
+    <section className="pb-16 lg:py-24" id="projects">
       <div className="container">
         <div className="center-container">
-          <p className="uppercase inline-flex font-bold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent text-center text-sm md:text-lg lg:text-xl">
-            Real-world Results
-          </p>
+          <p className="sub-title">Real-world Results</p>
           <h2 className="title">Featured Projects</h2>
           <p className="desc">
             A showcase of my best work—built with clean code, modern tech, and a
@@ -62,18 +47,15 @@ export const ProjectsSection = () => {
         </div>
 
         <div className="flex flex-col mt-12 md:mt-20 gap-20">
-          {portfolioProjects.map((project) => (
-            <div
+          {portfolioProjects.map((project, index) => (
+            <Card
               key={project.title}
-              className="bg-gray-800 rounded-3xl relative after:content-[''] after:absolute after:inset-0 after:outline after:-outline-offset-2 after:outline-2 after:outline-white/20 after:rounded-3xl z-0 after:z-10 after:pointer-events-none overflow-hidden px-8 pt-8 md:px-10 md:pt-10 lg:pr-0 flex flex-col lg:flex-row lg:gap-12"
+              className="sticky px-8 pt-8 md:px-10 md:pt-10 lg:pr-0 flex flex-col lg:flex-row lg:gap-12"
+              style={{
+                top: `calc(64px + ${index * 40}px)`,
+              }}
             >
               <div className="lg:w-1/2">
-                <div
-                  className="absolute inset-0 opacity-5 -z-10"
-                  style={{
-                    backgroundImage: `url(${grainImage.src})`,
-                  }}
-                ></div>
                 {project.company && (
                   <div className="bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent inline-flex uppercase font-bold tracking-widest gap-2 mb-4 md:mb-5">
                     <span>{project.company}</span>
@@ -106,11 +88,11 @@ export const ProjectsSection = () => {
                 </div>
               </div>
               <Image
-                className="-mb-4 md:-mb-0 lg:w-1/2 lg:-mb-1 lg:-mr-4"
+                className="-mb-4 md:-mb-0 lg:w-1/2 lg:-mb-12 lg:-mr-4 object-contain"
                 src={project.image}
                 alt={project.title}
               />
-            </div>
+            </Card>
           ))}
         </div>
       </div>
