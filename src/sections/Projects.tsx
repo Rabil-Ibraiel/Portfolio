@@ -1,4 +1,5 @@
 import linkList from "@/assets/images/linkList.png";
+import ycDirectory from "@/assets/images/yc-directory.png";
 import iipc from "@/assets/images/IIPC.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,12 +10,26 @@ import Card from "@/components/Card";
 const portfolioProjects = [
   {
     company: "Personal Project",
+    year: "2025",
+    title: "YC Directory",
+    results: [
+      {
+        title: "Optimized user experience",
+      },
+      { title: "Enhanced performance" },
+      { title: "Mobile-first design" },
+    ],
+    link: "https://yc-directory-delta-nine.vercel.app/",
+    image: ycDirectory,
+  },
+  {
+    company: "Personal Project",
     year: "2024",
     title: "Linklist",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Customizable pages" },
+      { title: "Responsive design" },
+      { title: "Optimized performance" },
     ],
     link: "https://linklist-rabil.vercel.app/",
     image: linkList,
@@ -24,9 +39,9 @@ const portfolioProjects = [
     year: "2024",
     title: "Instant Invoice PDF Creator",
     results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+      { title: "Automatic PDF generation" },
+      { title: "Simple user interface" },
+      { title: "A variety of pre-designed templates" },
     ],
     link: "https://iipc-saa-s-nextjs-1t9l.vercel.app/",
     image: iipc,
